@@ -73,7 +73,7 @@ def tenant_schemas_check(app_configs, **kwargs):
                 'schema_name', flat=True))
         except ProgrammingError as e:
             table = TenantModel._meta.db_table
-if 'relation "{}" does not exist'.format(table) not in str(e):
+                if 'relation "{}" does not exist'.format(table) not in str(e):
                 errors.append(_make_error(
                     "Missing Tenants Table",
                     hint=_get_missing_tenants_table_message(),
